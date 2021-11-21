@@ -7,23 +7,11 @@
     <title>Adopt Me</title>
   </head>
   <body>
+
     <div id='root'> Not Rendered </div>
     <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
+    <script src='App.js'></script>
 
-    <script>
-      const App = () => {
-        return React.createElement(
-          'div',
-          {},
-          React.createElement('h1', {}, 'Adopt Me!')
-        );
-      }; 
-      
-      //Render App component inside the div with id 'root'
-      ReactDOM.render(React.createElement(App), document.getElementById('root'));
-
-
-    </script>
   </body>
 </html>
