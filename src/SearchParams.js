@@ -1,12 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } ffrom "react";
+import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
-const SearchParams = () => {
+  const SearchParams = () => {
+   
+//Hooks
+
   const [location, setLocation] = useState("Seattle, WA");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
+  const [pets, setPets] = useState([]);
   const breeds = [];
+
+//API requests with async function
+    useEffect( () => {
+      requestPets();
+    } )
+
+    async function requestPets() {
+      const res = await fetch(
+        `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}
+        &breed=${breed}`
+      )
+    }
 
   return (
     <div className="search-params">
