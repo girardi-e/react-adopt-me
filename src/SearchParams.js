@@ -7,7 +7,7 @@ const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
   //Hooks
 
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
@@ -30,7 +30,12 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">Location</label>
         <input
           type="text"
@@ -74,7 +79,6 @@ const SearchParams = () => {
         </label>
 
         <button>Submit</button>
-
       </form>
 
       {pets.map((pet) => (
