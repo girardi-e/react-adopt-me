@@ -1,5 +1,4 @@
 //This is a custom hook which will be called inside Search Params
-//This is a basic comment
 
 import { useState, useEffect } from "react";
 
