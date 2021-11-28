@@ -5,16 +5,17 @@ import Results from "./Results";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
-  //Hooks
 
+  //Hooks
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
+
   //using a custom hook
   const [breeds] = useBreedList(animal);
 
-  //API requests with async function
+  //this function is triggered after the componet is loaded for the first time: API requests with async function
   useEffect(() => {
     requestPets();
   }, []);
