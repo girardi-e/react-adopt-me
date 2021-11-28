@@ -1,17 +1,17 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Carousel from "./Carousel";
 
-//Class component
+// Replace constructor with class component
 class Details extends Component {
   //working with state: changed Parcel and Babel config to be able to do this
-  state = {loading: true}
+  state = { loading: true };
 
-//BEFORE
-//  constructor() {
-//    super();
-//    this.state = { loading: true };
-//  }
-  
+  //BEFORE
+  //  constructor() {
+  //    super();
+  //    this.state = { loading: true };
+  //  }
 
   //This gets rendered after the component is rendered for the first time: This is similar to useEffect
   async componentDidMount() {
@@ -44,10 +44,11 @@ class Details extends Component {
       return <h2>Loading ...</h2>;
     }
     //destruct object
-    const { animal, breed, city, state, description, name } = this.state;
+    const { animal, breed, city, state, description, name, images} = this.state;
 
     return (
       <div className="details">
+        <Carousel images={images} />
         <div>
           <h1>{name}</h1>
           <h2>
