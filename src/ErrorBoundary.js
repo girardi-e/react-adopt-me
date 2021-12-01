@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 //Error boundaries work like a JavaScript catch {} block, but for components.
 class ErrorBoundary extends Component {
@@ -7,7 +7,7 @@ class ErrorBoundary extends Component {
   //   super(props);
   //   this.state = { hasError: false };
 
-  state = { hasError: false };
+  state = { hasError: false, redirect: false };
 
   // Update state so the next render will show the fallback UI.
   static getDerivedStateFromError() {
@@ -18,10 +18,15 @@ class ErrorBoundary extends Component {
     //log this error to an error monitoring service such as Sentry, Azure,
     //Relic, TrackJS
     console.error("ErrorBoundary caught an error,", error, errorInfo);
+
+    //redirect user to home page after 5 seconds
+    setTimeout(() => this.setState({ redirect: true }), 5000);
   }
 
   render() {
-    if (this.state.hasError) {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else if (this.state.hasError) {
       return (
         <h2>
           There was an error with this listing. <Link to="/">Click here</Link>{" "}
