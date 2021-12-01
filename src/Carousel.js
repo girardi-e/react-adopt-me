@@ -16,7 +16,7 @@ class Carousel extends Component {
       // + turns a string into a number
       active: +event.target.dataset.index,
     });
-  }
+  };
 
   render() {
     //state is mutable
