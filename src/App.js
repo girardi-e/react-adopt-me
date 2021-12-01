@@ -8,7 +8,7 @@ import ThemeContext from "./ThemeContext";
 const App = () => {
   const theme = useState("dark");
   return (
-    // everything inside themeContext.Provider has access to theme
+    // everything inside ThemeContext.Provider has access to theme now
     <ThemeContext.Provider value={theme}>
       <div>
         <Router>
