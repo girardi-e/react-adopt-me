@@ -6,7 +6,8 @@ import SearchParams from "./SearchParams";
 import ThemeContext from "./ThemeContext";
 
 const App = () => {
-  const theme = useState("dark");
+  const theme = useState("dodgerblue");
+
   return (
     // everything inside ThemeContext.Provider has access to theme now
     <ThemeContext.Provider value={theme}>

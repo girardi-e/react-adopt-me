@@ -2,6 +2,6 @@
 import { createContext } from "react";
 
 //create a theme context with a default value(a hook with a function)
-const ThemeContext = createContext(["light", () => {}]);
+const ThemeContext = createContext(["green", () => {}]);
 
 export default ThemeContext;

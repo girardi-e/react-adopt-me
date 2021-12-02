@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import ThemeContext from "./ThemeContext";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
-
   //Hooks
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
+
+  //using the theme hook
+  const [theme, setTheme] = useContext(ThemeContext);
 
   //using a custom hook
   const [breeds] = useBreedList(animal);
@@ -78,7 +81,23 @@ const SearchParams = () => {
           </select>
         </label>
 
-        <button>Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}
+          >
+            <option value="">Choose button color</option>
+            <option value="springgreen"> springgreen</option>
+            <option value="coral">coral</option>
+            <option value="crimson">crimson</option>
+            <option value="gold">gold</option>
+            <option value="royalblue">royalblue</option>
+          </select>
+        </label>
+
+        <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
 
       <Results pets={pets} />
