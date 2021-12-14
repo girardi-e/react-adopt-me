@@ -17,7 +17,7 @@ const Modal = ({ children }) => {
     //insert div into the DOM
     modalRoot.appendChild(elRef.current);
 
-    //clean up the div once after it's done
+    //clean up the div once it's done
     return () => modalRoot.removeChild(elRef.current);
   }, []);
 
